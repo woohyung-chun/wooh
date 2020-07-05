@@ -13,7 +13,9 @@
    5. eclipe (Scala IDE build of Eclipse SDK)
   
   .사용 방법 
+  
    업로드된 파일을 다운받아 spark 환경에서 batch 파일을 실행
+   
    본 프로그램이 샐행 되기 위해서 위의 성치 정보와 같은 환경이 세팅 되어야 합니다.
  
 
