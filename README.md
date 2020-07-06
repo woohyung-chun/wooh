@@ -70,7 +70,7 @@
     • C:\Kakao\KakaoPay\bin\Kpay.bat [yyyy-mm]
      eg> yyyy-mm= 2019-03
 
-**6. 프로그램 설명** 
+**6. 프로그램 설명 및 문제해결** 
 
    •  main(args: Array[String])
    
