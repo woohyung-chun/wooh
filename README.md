@@ -72,13 +72,16 @@
 **6. 프로그램 설명** 
 
    •  main(args: Array[String])
+   
      - 로그 Level 설정 및 프로그램 시작 
    
    •  init(args: Array[String])
+   
       - customer.csv transaction.csv 파일 load
       - 각 load 된 파일로  temp  View 생성
 
    •  tmp_table(spark:SparkSession,args: Array[String])
+   
       - init에서 생성된 cusstomer , transaction View를  활용하여 MySQL 임시테이블(TMP1_TABLE)    에 Insert
       - 아래 SQL
           SELECT A.ID                                                  
@@ -94,6 +97,7 @@
                
                
    •  insert_table
+   
      - tmp_table 에서 생성한 임시 테이터를 spark의 jdbc connection 을 활용하여 
         활용하여 결과 테이블 insert
      -  아래 SQL 
