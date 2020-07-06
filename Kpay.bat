@@ -1,0 +1,1 @@
+spark-submit  --class com.ncia.spark.FileReadV2 --master local[4]¡¡--jars FileReadV2.jar  2019-04
