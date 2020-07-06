@@ -21,31 +21,37 @@
 - - -
 **4. 테이블 구성 ** 
 
-   • Table: customer_risk_result
-   
+   **• Table: customer_risk_result**
+  
             Columns:
-            ID decimal(20,0) 
-            BASE_YYMM text 
-            CUSTOMER_ID int 
-            RISK_SCORE decimal(26,2) 
-            RISK_GRADE text
+            ID decimal(20,0)          #ID
+            BASE_YYMM text            #기준년월
+            CUSTOMER_ID int           #고객ID
+            RISK_SCORE decimal(26,2)  #위험점수
+            RISK_GRADE text           #위험등급
             
 
-   • Table: grade_base
+  ** • Table: grade_base**
   
      Columns:
-            ID varchar(10) 
-            GRADE varchar(2) 
-            MIN_SCORE int 
-            MAX_SCORE int
+            ID     varchar(10)    #ID
+            GRADE  varchar(2)     #등급
+            MIN_SCORE int         #최저점수
+            MAX_SCORE int         #최고점수
+            
 
 
 
-    • Table: tmp1_table  
+
+
+
+**• Table: tmp1_table  ** (customer와 transaction 의 데이터 중간 집계 테이블)
+
       Columns:
-            ID int 
-            GIJUN_MON text 
-            YYYYMM text 
-            AMT bigint
-- - -
+            ID int          #CustmerID 
+            GIJUN_MON text  #기준년월(batch)
+            YYYYMM text     #거래년월
+            AMT bigint      #거래금액
+            
+            
             
