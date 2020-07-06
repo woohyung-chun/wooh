@@ -98,8 +98,9 @@
 
                
                
-   •  insert_table
-   
+   •  insert_table(spark:SparkSession)
+
+
      - tmp_table 에서 생성한 임시 테이터를 spark의 jdbc connection 을 활용하여 
         활용하여 결과 테이블 insert
      -  아래 SQL 
@@ -115,8 +116,13 @@
                  FROM TMP1_TABLE
              GROUP BY GIJUN_MON
                      , ID
-             ) A
-   LEFT JOIN GRADE_BASE B
-           ON A.RESULT BETWEEN MIN_SCORE AND MAX_SCORE 
-           
-           
+             ) A   LEFT JOIN GRADE_BASE B
+           ON A.RESULT BETWEEN MIN_SCORE AND MAX_SCORE
+
+
+    
+       
+
+  •  show_result(spark:SparkSession)
+    
+       - 결과 테이블 확인용 개발의 편의를 위해 생성함
