@@ -17,7 +17,8 @@
    • MYSQL 8.0
    • Hadop for winodw(winutils.exe)
    • SCALA
-     
+   
+- - -
 **4. 테이블 구성 ** 
 
    • Table: customer_risk_result
@@ -43,3 +44,5 @@
             GIJUN_MON text 
             YYYYMM text 
             AMT bigint
+- - -
+            
