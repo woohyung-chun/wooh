@@ -22,6 +22,7 @@
 **4. 테이블 구성 ** 
 
    • Table: customer_risk_result
+   
             Columns:
             ID decimal(20,0) 
             BASE_YYMM text 
@@ -31,6 +32,7 @@
             
 
    • Table: grade_base
+  
      Columns:
             ID varchar(10) 
             GRADE varchar(2) 
@@ -38,7 +40,8 @@
             MAX_SCORE int
 
 
-    • Table: tmp1_table
+
+    • Table: tmp1_table  
       Columns:
             ID int 
             GIJUN_MON text 
