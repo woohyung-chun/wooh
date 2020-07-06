@@ -84,16 +84,18 @@
    
       - init에서 생성된 cusstomer , transaction View를  활용하여 MySQL 임시테이블(TMP1_TABLE)    에 Insert
       - 아래 SQL
-          SELECT A.ID                                                  
-                 , 'loc_var+"'  AS GIJUN_MON                         
-                 , SUBSTRING(TRANSACTION_DATE,1,7) AS YYYYMM           
-                 , SUM(B.AMOUNT) AS AMT                                
-            FROM CUSTOMER A                                            
-       INNER JOIN TRANSACTION B                                        
-             ON A.ID = B.CUSTOMER_ID                                   
-            AND SUBSTRING(TRANSACTION_DATE,1,7)  BETWEEN  DATE_FORMAT(ADD_MONTHS(TO_DATE('loc_var+-01'),-3),'yyyy-MM') AND 'loc_var+'  
-        GROUP BY A.ID                                                                                    , A.NAME                                                 
-               , SUBSTRING(TRANSACTION_DATE,1,7)                              
+        SELECT A.ID
+           , 'loc_var+"'  AS GIJUN_MON
+           , SUBSTRING(TRANSACTION_DATE,1,7) AS YYYYMM
+           , SUM(B.AMOUNT) AS AMT
+          FROM CUSTOMER A
+     INNER JOIN TRANSACTION B
+           ON A.ID = B.CUSTOMER_ID
+          AND SUBSTRING(TRANSACTION_DATE,1,7)  BETWEEN  DATE_FORMAT(ADD_MONTHS(TO_DATE('loc_var+"-01'),-3),'yyyy-MM') AND 'loc_var+'
+      GROUP BY A.ID
+             , A.NAME
+             , SUBSTRING(TRANSACTION_DATE,1,7)
+
                
                
    •  insert_table
