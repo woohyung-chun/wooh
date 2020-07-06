@@ -101,10 +101,20 @@
      - tmp_table 에서 생성한 임시 테이터를 spark의 jdbc connection 을 활용하여 
         활용하여 결과 테이블 insert
      -  아래 SQL 
-            SELECT  ROW_NUMBER() OVER (ORDER BY A.GIJUN_MON)    AS ID                                  
-           ,  A.GIJUN_MON                                AS BASE_YYMM                                                        , A.ID                                        AS CUSTOMER_ID                                                      , A.RESULT                                    AS RISK_SCORE                                                        , B.GRADE                                     AS RISK_GRADE                                                    FROM (  SELECT GIJUN_MON                                                                                                        , ID                                                                                                              , SUM(AMT) AMT                                                                                                    , ROUND(((AVG(AMT) - MIN(AMT)) / (MAX(AMT) - MIN(AMT))),2)*100 AS RESULT                                      FROM TMP1_TABLE                                                                                                GROUP BY GIJUN_MON                                                                                                        , ID                                                                                      
-             ) A  
-           LEFT JOIN GRADE_BASE B                                                                  
-           ON A.RESULT BETWEEN MIN_SCORE AND MAX_SCORE  
+           SELECT  ROW_NUMBER() OVER (ORDER BY A.GIJUN_MON)    AS ID
+               ,  A.GIJUN_MON                                AS BASE_YYMM
+               , A.ID                                        AS CUSTOMER_ID
+               , A.RESULT                                    AS RISK_SCORE
+               , B.GRADE                                     AS RISK_GRADE
+       FROM (  SELECT GIJUN_MON
+                     , ID
+                     , SUM(AMT) AMT
+                     , ROUND(((AVG(AMT) - MIN(AMT)) / (MAX(AMT) - MIN(AMT))),2)*100 AS RESULT
+                 FROM TMP1_TABLE
+             GROUP BY GIJUN_MON
+                     , ID
+             ) A
+   LEFT JOIN GRADE_BASE B
+           ON A.RESULT BETWEEN MIN_SCORE AND MAX_SCORE 
            
            
