@@ -127,3 +127,30 @@
   •  show_result(spark:SparkSession)
     
        - 결과 테이블 확인용 개발의 편의를 위해 생성함
+
+**7. 단위테스트** 
+   - 단위테스트를 위해 ScalaTest.scala 와 FileReadV2_ForTest.scala 파일 2개를 생성하여 테스트함
+   - ScalaTest.scala의 입력 파라미터에 따라서 결과 값 출력
+    -- 아래 입력값에 따른 결과값  출력
+    > 입력값 : init 2019-04 일경우
+    > 결과 : 파일사이즈따른 결과갑 출력
+     >  customer or transaction File 내용없음
+     >  customer File size : 10000   transaction File size :120000
+
+     >입력값: tmp_table   
+     >결과 : 날짜값이 없습니다.
+     >
+     >입력값: tmp_table  2019-04
+     >결과 : 날짜 : 20190-04 
+
+     > 입력값 : insert_table 2019-04
+     > 결과 :
+     >        +---+---------+-----------+----------+----------+
+            | ID|BASE_YYMM|CUSTOMER_ID|RISK_SCORE|RISK_GRADE|
+            +---+---------+-----------+----------+----------+
+            |  1|  2019-04|       4211|     56.00|         B|
+            |  2|  2019-04|       4907|     67.00|         B|
+            |  3|  2019-04|       3568|     50.00|         B|
+            |  4|  2019-04|       7378|     35.00|         B|
+            
+              
